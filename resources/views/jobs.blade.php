@@ -1,5 +1,5 @@
 <x-layout>
-    <x-slot:heading>
+ <x-slot:heading>
         Jobs
     </x-slot:heading>
 
@@ -7,7 +7,9 @@
         @foreach ($jobs as $job)
             <a href="/jobs/{{ $job['id'] }}" 
                class="block p-6 bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-1">
-                
+                <strong class="text-laracasts">{{ $job->employer->name }}:</strong>
+                {{ $job['title'] }} pays {{ $job['salary'] }} per year.
+
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-xl font-bold text-gray-900">
                         {{ $job['title'] }}
@@ -32,4 +34,8 @@
             </a>
         @endforeach
     </div>
+
+    
+    
+
 </x-layout>

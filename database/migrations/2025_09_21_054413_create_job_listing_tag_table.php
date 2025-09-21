@@ -10,19 +10,20 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void 
-        { 
-            Schema::create('employers', function (Blueprint $table) { 
+    { 
+        Schema::create('job_listing_tag', function (Blueprint $table) { 
             $table->id(); 
-            $table->string('name'); // Add this line 
+            $table->foreignIdFor(\App\Models\Job::class, 'job_listing_id')->constrained()->cascadeOnDelete(); 
+            $table->foreignIdFor(\App\Models\Tag::class)->constrained()->cascadeOnDelete(); 
             $table->timestamps(); 
-            }); 
-        } 
+        }); 
+    } 
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('employers');
+        Schema::dropIfExists('job_listing_tag');
     }
 };
