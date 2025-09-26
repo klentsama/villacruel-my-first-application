@@ -22,7 +22,7 @@
                 <p class="text-gray-700 mb-4">
                     {{ $job['description'] ?? 'Exciting opportunity awaits!' }}
                 </p>
-
+                
                 <div class="flex justify-between items-center text-sm text-gray-500">
                     <span class="font-medium text-gray-800">
                         💰 ${{ $job['salary'] }} / year
