@@ -5,17 +5,17 @@
 
     {{-- Back to Job Listings --}}
     <div class="flex justify-end mb-6">
-        <a href="{{ route('jobs.index') }}"
+        <a href="/jobs"
            class="inline-block bg-gray-200 text-gray-700 px-5 py-2 rounded-lg shadow hover:bg-gray-300 transition">
             ← Back to Jobs
         </a>
     </div>
 
     <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md border border-gray-200">
-        <form method="POST" action="{{ route('jobs.store') }}">
+        <form method="POST" action="/jobs">
             @csrf
 
-            {{-- Job Title --}}
+        {{-- Job Title --}}
             <div class="mb-4">
                 <label for="title" class="block text-sm font-semibold text-gray-700">Job Title</label>
                 <input type="text" name="title" id="title" value="{{ old('title') }}"
@@ -65,17 +65,6 @@
                 </select>
             </div>
 
-            {{-- Description
-            <div class="mb-4">
-                <label for="description" class="block text-sm font-semibold text-gray-700">Job Description</label>
-                <textarea name="description" id="description" rows="4"
-                          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
-                          placeholder="Write a short job description...">{{ old('description') }}</textarea>
-                @error('description')
-                    <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
-                @enderror
-            </div> --}}
-
             {{-- Tags --}}
             <div class="mb-6">
                 <label class="block text-sm font-semibold text-gray-700 mb-2">Tags</label>
@@ -93,7 +82,6 @@
                     <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
                 @enderror
             </div>
-
 
             {{-- Submit Button --}}
             <div class="flex justify-end">
